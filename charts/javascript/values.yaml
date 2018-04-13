@@ -4,9 +4,10 @@
 replicaCount: 2
 image:
   pullPolicy: IfNotPresent
+  repository: aksjavabade.azurecr.io/aks-node-express
 service:
   name: node
-  type: ClusterIP
+  type: LoadBalancer
   externalPort: 8080
   internalPort: 8080
 resources:
@@ -16,3 +17,6 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
+ingress:
+  enabled: true
+basedomain: foo.bar.com
